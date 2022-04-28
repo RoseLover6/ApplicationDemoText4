@@ -18,10 +18,10 @@ import android.widget.Toast;
 import com.example.applicationdemotext4.R;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText mUsernumber, mPwd;
+    private EditText mUserNumber, mPwd;
     private Button login, register;
-    private static final String LOGINNUM = "17641241979";
-    private static final String LOGINPWD = "521314";
+    private static final String LOGIN_NUM = "17641241979";
+    private static final String LOGIN_PWD = "521314";
     private IntentFilter intentFilter;
     private NetworkChangeRecever networkChangeRecever;
 
@@ -33,23 +33,26 @@ public class MainActivity extends AppCompatActivity {
         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");//添加广播
         networkChangeRecever = new NetworkChangeRecever();
         registerReceiver(networkChangeRecever, intentFilter);
-        mUsernumber = findViewById(R.id.editText1);
+        mUserNumber = findViewById(R.id.editText1);
         mPwd = findViewById(R.id.editText2);
         login = findViewById(R.id.button1);
         register = findViewById(R.id.button2);
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mUsernumber.getText().toString().equals(LOGINNUM) && mPwd.getText().toString().equals(LOGINPWD)) {
+                if (mUserNumber.getText().toString().equals(LOGIN_NUM) && mPwd.getText().toString()
+                        .equals(LOGIN_PWD)) {
                     Toast.makeText(MainActivity.this, "登录成功！", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent();
                     intent.setClass(MainActivity.this, MyToolAcyivity.class);
-                    intent.putExtra("userNumber", mUsernumber.getText().toString());
+                    intent.putExtra("userNumber", mUserNumber.getText().toString());
                     intent.putExtra("pwd", mPwd.getText().toString());
                     startActivity(intent);
                     sendBroadcast(intent);
                 } else {
-                    Toast.makeText(MainActivity.this, "登录失败，账号或密码错误！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "登录失败，账号或密码错误！",
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -62,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public class NetworkChangeRecever extends BroadcastReceiver {
-
         @Override
         public void onReceive(Context context, Intent intent) {
             ConnectivityManager connecttivityManager;
