@@ -71,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
             connecttivityManager = (ConnectivityManager) context.getSystemService(context.CONNECTIVITY_SERVICE);
             NetworkInfo networkInfo = connecttivityManager.getActiveNetworkInfo();
             if (networkInfo != null && networkInfo.isAvailable()) {
-                Log.i("ToF","networks is available");
+                Log.i("ToF", "networks is available");
             } else {
-                Log.i("ToF","networks is unavailable");
+                Log.i("ToF", "networks is unavailable");
 
             }
         }

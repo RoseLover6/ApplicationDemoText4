@@ -17,12 +17,12 @@ public class SettingActivity extends Activity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         TextView name = (TextView) findViewById(R.id.name);
-        name.setText("用户姓名:"+bundle.getString("name"));
+        name.setText("用户姓名:" + bundle.getString("name"));
         TextView age = (TextView) findViewById(R.id.age);
-        age.setText("年龄:"+bundle.getByte("age"));
+        age.setText("年龄:" + bundle.getByte("age"));
         TextView hobby = (TextView) findViewById(R.id.hobby);
-        hobby.setText("爱好:"+bundle.getSerializable("hobby"));
+        hobby.setText("爱好:" + bundle.getSerializable("hobby"));
         TextView height = (TextView) findViewById(R.id.height);
-        height.setText("身高:"+bundle.getInt("height"));
+        height.setText("身高:" + bundle.getInt("height"));
     }
 }
