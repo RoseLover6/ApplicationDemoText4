@@ -24,18 +24,17 @@ public class MyToolAcyivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String result = parent.getItemAtPosition(position).toString();
-                if(result.equals("由福建 3")){
+                if(position==2){
                     Intent intent = new Intent(MyToolAcyivity.this, SettingActivity.class);
                     Bundle bundle = new Bundle();
-                    bundle.putString("name","由福建");
-                    bundle.putSerializable("hobby","篮球");
-                    bundle.putInt("height",176);
-                    bundle.putByte("age",(byte)23);
+                    bundle.putString("name", "由福建");
+                    bundle.putSerializable("hobby", "篮球");
+                    bundle.putInt("height", 176);
+                    bundle.putByte("age", (byte)23);
                     intent.putExtras(bundle);
                     startActivity(intent);
                 }else {
-                    Toast.makeText(MyToolAcyivity.this,"您选择了第"+(position+1)+"项",
-                            Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MyToolAcyivity.this,"您选择了第"+(position+1)+"项",Toast.LENGTH_SHORT).show();
                 }
             }
         });
